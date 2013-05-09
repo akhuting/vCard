@@ -1,0 +1,1096 @@
+/* -------------------------------------------------------------------------------
+
+    0.  CSS Reset & Clearfix
+    1.  Document Setup
+    2.  Header
+    3.  Navigation
+    4.  Welcome Section
+    5.  About Section
+    6.  Portfolio Section
+    7.  Contact Section
+    8.  Footer
+    9.  Media Queries
+
+---------------------------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------------------------- */
+/*  0.  Reset & Clearfix (http://meyerweb.com/eric/tools/css/reset/)
+/* ------------------------------------------------------------------------------- */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,and,address,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,input,textarea,select{background:transparent;border:0;font-size:100%;margin:0;outline:0;padding:0;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}del{text-decoration:line-through}hr{background:transparent;border:0;clear:both;color:transparent;height:1px;margin:0;padding:0}mark{background-color:#ffffb3;font-style:italic}input,select{vertical-align:middle}ins{background-color:red;color:white;text-decoration:none}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}
+
+.clear{clear:both;display:block;height:0;overflow:hidden;visibility:hidden;width:0}.clearfix:after{clear:both;content:' ';display:block;font-size:0;height:0;line-height:0;visibility:hidden;width:0}* html .clearfix,:first-child+html .clearfix{zoom:1}
+
+
+/* ------------------------------------------------------------------------------- */
+/*  1.  Document Setup
+/* ------------------------------------------------------------------------------- */
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        background: url("../images/bg_03.png")/*tpa=http://edison.reworkmedia.net/01/images/bg_03.png*/ top left repeat-x, url("../images/bg_01.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_01.jpg*/ top left repeat;
+        font: 14px/1.5 Helvetica, 'Helvetica Neue', Geneva, Arial, sans-serif;
+        color: #422a03;
+        text-shadow: 0 2px 1px rgba(255, 255, 255, 0.3);
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: 100%;
+    }
+    /*  IE Styles  --------------------------------*/
+        .ie8 body {
+            background: url("../images/bg_01.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_01.jpg*/; top left repeat;
+        }
+
+    #container {
+        width: 940px;
+        margin: 50px auto 50px;
+    }
+    #content {
+        background: url("../images/bg_light_01.png")/*tpa=http://edison.reworkmedia.net/01/images/bg_light_01.png*/ top left repeat-x, url("../images/bg_shadow_01.png")/*tpa=http://edison.reworkmedia.net/01/images/bg_shadow_01.png*/ bottom left repeat-x, url("../images/bg_02.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_02.jpg*/ top left repeat;
+        -webkit-border-radius: 10px;
+           -moz-border-radius: 10px;
+                border-radius: 10px;
+        -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+           -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+    }
+    /*  IE Styles  --------------------------------*/
+        .ie8 #content {
+            background: url("../images/bg_02.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_02.jpg*/; top left repeat;
+            -moz-border-radius: 5px;
+                 border-radius: 5px;
+            -moz-box-shadow: 0px 3px 13px #000;
+                 box-shadow: 0px 3px 13px #000;
+                   behavior: url("js/radius-shadow.htc")/*tpa=http://edison.reworkmedia.net/01/css/js/radius-shadow.htc*/;
+        }
+
+    a, a > * { 
+        color: #422a03;
+        text-decoration: none; 
+        -webkit-transition: background-color .2s linear, color .2s linear;
+           -moz-transition: background-color .2s linear, color .2s linear;
+             -o-transition: background-color .2s linear, color .2s linear;
+            -ms-transition: background-color .2s linear, color .2s linear;
+                transition: background-color .2s linear, color .2s linear;
+    }
+    a:hover, a > *:hover {
+        color: #64491e;
+    }
+    .submit {
+        font: 15px Helvetica, 'Helvetica Neue', Geneva, Arial, sans-serif;
+        font-weight: bold;
+        color: #422a03;
+        text-shadow: 0 1px 1px rgba(226, 198, 140, 0.8);
+        cursor: pointer;
+        padding: 11px;
+        background: -moz-linear-gradient(top, rgba(181, 130, 61, 0.4) 0%, rgba(64, 26, 0, 0.4) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(181, 130, 61, 0.4)), color-stop(100%, rgba(64, 26, 0, 0.4)));
+        background: -webkit-linear-gradient(top,  rgba(181, 130, 61, 0.4) 0%, rgba(64, 26, 0, 0.4) 100%);
+        background: -o-linear-gradient(top, rgba(181, 130, 61, 0.4) 0%, rgba(64, 26, 0, 0.4) 100%);
+        background: -ms-linear-gradient(top, rgba(181, 130, 61, 0.4) 0%, rgba(64, 26, 0, 0.4) 100%);
+        background: linear-gradient(top, rgba(181, 130, 61, 0.4) 0%, rgba(64, 26, 0, 0.4) 100%);
+        border: none;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) inset, 0 -1px 0px rgba(0, 0, 0, 0.13), 0 1px 0px rgba(255, 255, 255, 0.25);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) inset, 0 -1px 0px rgba(0, 0, 0, 0.13), 0 1px 0px rgba(255, 255, 255, 0.25);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) inset, 0 -1px 0px rgba(0, 0, 0, 0.13), 0 1px 0px rgba(255, 255, 255, 0.25);
+        -webkit-transition: background-color .2s linear;
+           -moz-transition: background-color .2s linear;
+             -o-transition: background-color .2s linear;
+            -ms-transition: background-color .2s linear;
+                transition: background-color .2s linear;
+    }
+    /*  IE Styles  --------------------------------*/
+        .ie9 .submit {
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I1ODIzZCIgc3RvcC1vcGFjaXR5PSIwLjQiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQwMWEwMCIgc3RvcC1vcGFjaXR5PSIwLjQiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+        }
+        .ie8 .submit {
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66b5823d', endColorstr='#66401a00',GradientType=0 );
+        }
+
+    input, textarea {
+        font: 14px/1.5 Helvetica, 'Helvetica Neue', Geneva, Arial, sans-serif;
+        color: #422a03;
+        padding: 6px 10px;
+        background: url("../images/bg_04.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_04.jpg*/;
+        border: 1px solid #b19470;
+        border-top: 1px solid #85663e;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5);
+        -webkit-transition: box-shadow .2s linear;
+           -moz-transition: box-shadow .2s linear;
+             -o-transition: box-shadow .2s linear;
+            -ms-transition: box-shadow .2s linear;
+                transition: box-shadow .2s linear;
+    }
+    h1 {
+        font-size: 60px;
+    }
+    h2 {
+        font-size: 48px;
+    }
+    h3 {
+        font-size: 24px;
+        line-height: 40px;
+        color: #805c2f;
+    }
+    h4 {font-size: 14px;
+        line-height: 24px;
+    }
+    h5 {
+        font-size: 13px;
+    }
+    h6 {
+        font-size: 11px;
+    }
+    .separator {
+        width: 100%;
+        height: 15px;
+        background: url("../images/separator_01.png")/*tpa=http://edison.reworkmedia.net/01/images/separator_01.png*/ center no-repeat;
+        position: relative;
+    }
+
+
+/* ------------------------------------------------------------------------------- */
+/*  2.  Header
+/* ------------------------------------------------------------------------------- */
+
+    .header {
+        height: 100px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        text-align: center;
+    }
+    #logo h4 {
+        color: #795f39;
+        line-height: 15px;
+    }
+
+
+/* ------------------------------------------------------------------------------- */
+/*  3.  Navigation
+/* ------------------------------------------------------------------------------- */
+
+    .navigation {
+        height: 116px;
+        background: url("../images/bg_nav.png")/*tpa=http://edison.reworkmedia.net/01/images/bg_nav.png*/ bottom left no-repeat;
+        position: relative;
+        text-align: center;
+    }
+    .tabs {
+        margin-top: 12px;
+        display: inline-block;
+    }
+    .tabs li {
+        float: left;
+        margin: 0 2px;
+    }
+    .tabs li > a {
+        width: 106px;
+        height: 26px;
+        padding-top: 45px;
+        display: block;
+        font-size: 15px;
+        font-weight: 600;
+        color: #6a4a16;
+        text-decoration: none;
+    }
+    .tabs li a:hover {
+        background-color: rgba(122, 70, 9, 0.15);
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.4) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+           -moz-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.4) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+                box-shadow: 0 1px 3px rgba(59, 31, 0, 0.4) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+    }
+    .tabs li.active {
+        background: -moz-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(218, 169, 104, 0.45)), color-stop(100%, rgba(122, 70, 9, 0.45)));
+        background: -webkit-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: -o-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: -ms-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+           -moz-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+                box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+    }
+    /*  IE Styles  --------------------------------*/
+        .ie9 .tabs li.active {
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RhYTk2OCIgc3RvcC1vcGFjaXR5PSIwLjQ1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3YTQ2MDkiIHN0b3Atb3BhY2l0eT0iMC40NSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        }
+        .ie8 .tabs li.active {
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#73daa968', endColorstr='#737a4609',GradientType=0 );
+        }
+
+    .tab-welcome {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ 0 0;
+    }
+    .tab-about {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -106px 0;
+    }
+    .tab-portfolio {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -212px 0;
+    }
+    .tab-contact {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -318px 0;
+    }
+    .tabs .active .tab-welcome {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ 0 -69px;
+    }
+    .tabs .active .tab-about {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -106px -69px;
+    }
+    .tabs .active .tab-portfolio {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -212px -69px;
+    }
+    .tabs .active .tab-contact {
+        background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -318px -69px;
+    }
+
+
+/* ------------------------------------------------------------------------------- */
+/*  4.  Welcome Section
+/* ------------------------------------------------------------------------------- */
+
+    #welcome {
+        overflow: hidden;
+    }
+    .slider-wrapper {
+        width: 830px;
+        margin: 30px 40px 35px;
+        padding: 15px;
+        background: url("../images/bg_04.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_04.jpg*/;
+        display: inline-block;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+
+
+/* ------------------------------------------------------------------------------- */
+/*  5.  About Section
+/* ------------------------------------------------------------------------------- */
+
+    #about {
+        overflow: hidden;
+        padding-bottom: 35px;
+    }
+    .about-header {
+        width: 100%;
+        margin-top: 40px;
+        text-align: center;
+    }
+
+
+    /*  Resume  --------------------------------*/
+
+    .resume-wrapper {
+        width: 100%;
+        margin-top: 25px;
+        text-align: center;
+    }
+    .resume {
+        width: 580px;
+        display: inline-block;
+    }
+    .resume .photo {
+        width: 140px;
+        height: 140px;
+        margin-top: 5px;
+        float: left;
+        background: url("../images/bg_04.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_04.jpg*/;
+        border: 1px solid #b19470;
+        border-top: 1px solid #85663e;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5);
+    }
+    .resume .photo img {
+        margin: 8px;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    .personal-info {
+        width: 415px;
+        margin: 4px 0 0 20px;
+        text-align: left;
+        float: left;
+    }
+    .personal-info li {
+        margin-bottom: 14px;
+        overflow: hidden;
+    }
+    .personal-info li label {
+        font-weight: bold;
+        float: left;      
+    }
+    .personal-info li span {
+        width: 280px;
+        float: right;
+    }
+    .personal-info li p {
+        margin: 10px 0 10px;
+        line-height: 24px;
+    }
+
+
+    /*  Experience  --------------------------------*/
+
+    .experience {
+        width: 548px;
+        margin: 30px 0 0 40px;
+        float: left;
+    }
+    .experience h3, .skills h3  {
+        font-size: 18px;
+        line-height: 60px;
+    }
+    .experience li {
+        margin-bottom: 15px;
+    }
+    .experience ul li:last-child {
+        margin-bottom: 20px;
+    }
+
+
+    /*  Skills  --------------------------------*/
+    
+    .skills {
+        width: 265px;
+        float: right;
+        margin-right: 40px;
+        margin-top: 30px;
+        overflow: hidden;
+    }
+    .skills li {
+        margin-bottom: 15px;
+        float: left;
+    }
+    .skills li h4 {
+        width: 115px;
+        float: left;
+    }
+    .skills li .level-0, .skills li .level-1, .skills li .level-2, .skills li .level-3, .skills li .level-4, .skills li .level-5 {
+        width: 147px;
+        height: 25px;
+        float: right;
+    }
+    .skills li .level-0 {
+        background: url("../images/skills_level.png")/*tpa=http://edison.reworkmedia.net/01/images/skills_level.png*/ no-repeat;
+    }
+    .skills li .level-1 {
+        background: url("../images/skills_level.png")/*tpa=http://edison.reworkmedia.net/01/images/skills_level.png*/ no-repeat 0px -25px;
+    }
+    .skills li .level-2 {
+        background: url("../images/skills_level.png")/*tpa=http://edison.reworkmedia.net/01/images/skills_level.png*/ no-repeat 0px -50px;
+    }
+    .skills li .level-3 {
+        background: url("../images/skills_level.png")/*tpa=http://edison.reworkmedia.net/01/images/skills_level.png*/ no-repeat 0px -76px;
+    }
+    .skills li .level-4 {
+        background: url("../images/skills_level.png")/*tpa=http://edison.reworkmedia.net/01/images/skills_level.png*/ no-repeat 0px -101px;
+    }
+    .skills li .level-5 {
+        background: url("../images/skills_level.png")/*tpa=http://edison.reworkmedia.net/01/images/skills_level.png*/ no-repeat 0px -126px;
+    }
+
+
+
+/* ------------------------------------------------------------------------------- */
+/*  6.  Portfolio Section
+/* ------------------------------------------------------------------------------- */
+
+    #portfolio {
+        padding: 0px 25px;
+        overflow: hidden;
+        text-align: center;
+        position: relative;
+    }
+
+
+    /*  Filter  --------------------------------*/
+
+    #portfolio-filter {
+        margin: 35px 0 25px;
+        overflow: hidden;
+        display: inline-block;
+    }
+    #portfolio-filter li {
+        margin: 2px;
+        float: left;
+    }
+    #portfolio-filter li a {
+        padding: 4px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #795f39;
+        text-decoration: none;
+        -webkit-border-radius: 20px;
+           -moz-border-radius: 20px;
+                border-radius: 20px;
+    }
+    #portfolio-filter li a.current {
+        background: -moz-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(218, 169, 104, 0.45)), color-stop(100%, rgba(122, 70, 9, 0.45)));
+        background: -webkit-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: -o-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: -ms-linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        background: linear-gradient(top, rgba(218, 169, 104, 0.45) 0%, rgba(122, 70, 9, 0.45) 100%);
+        -webkit-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+           -moz-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+                box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+    }
+    /*  IE Styles  --------------------------------*/
+        .ie9 #portfolio-filter li a.current {
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RhYTk2OCIgc3RvcC1vcGFjaXR5PSIwLjQ1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3YTQ2MDkiIHN0b3Atb3BhY2l0eT0iMC40NSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        }
+        .ie8 #portfolio-filter li a.current {
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#73daa968', endColorstr='#737a4609',GradientType=0 );
+        }
+
+    #portfolio-filter li a:hover {
+        background-color: rgba(122, 70, 9, 0.15);
+        -webkit-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+           -moz-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+                box-shadow: 0 1px 3px rgba(59, 31, 0, 0.8) inset, 0 1px 1px rgba(255, 255, 255, 0.35);
+    }
+
+
+    /*  Portfolio Items  --------------------------------*/
+    
+    #portfolio-feed {
+        width: 940px;
+        display: inline-block;
+        text-align: center;
+    }
+    #portfolio-feed li {
+        width: 194px;
+        height: 202px;
+        margin: 0 14px 40px 14px;
+        text-align: center;
+        float: left;
+        background: url("../images/bg_04.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_04.jpg*/;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    #portfolio-feed img {
+        width: 174px;
+        height: 111px;
+        margin-top: 10px;
+    }
+    #portfolio-feed li h2 {
+        margin-top: 26px;
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 15px;
+    }
+    #portfolio-feed li .tags {
+        font-size: 11px;
+        color: #8e7f6a;
+    }
+
+
+    /*  Adipoli Plugin  --------------------------------*/
+    
+    .adipoli-wrapper {
+        margin: auto;
+        position: relative;
+        display: inline-block;
+    }
+    .adipoli-wrapper > img {
+        position: absolute;
+        z-index: 1;
+    }
+    .adipoli-before {
+        margin-top: 10px;
+        position: absolute;
+        z-index: 5;
+    }
+    .adipoli-after {
+        margin-top: 0px;
+        position: absolute;
+        z-index: 10;
+    }
+    .adipoli-slice {
+        margin-top: 10px;
+        display: block;
+        position: absolute;
+        z-index: 15;
+        height: 100%;
+    }
+    .adipoli-box {
+        display: block;
+        position: absolute;
+        z-index: 15;
+    }
+
+
+    /*  Isotope Plugin  --------------------------------*/
+
+    .isotope-item {
+        z-index: 2;
+    }
+    .isotope-hidden.isotope-item {
+        pointer-events: none;
+        z-index: 1;
+    }
+    .isotope, .isotope .isotope-item {/* change duration value to whatever you like */
+        -webkit-transition-duration: 0.8s;
+           -moz-transition-duration: 0.8s;
+                transition-duration: 0.8s;
+    }
+    .isotope {
+        -webkit-transition-property: height, width;
+           -moz-transition-property: height, width;
+                transition-property: height, width;
+    }
+    .isotope .isotope-item {
+        -webkit-transition-property: -webkit-transform, opacity;
+           -moz-transition-property:    -moz-transform, opacity;
+            -ms-transition-property:     -ms-transform, opacity;
+             -o-transition-property:         top, left, opacity;
+                transition-property:         transform, opacity;
+    }
+
+
+/* ------------------------------------------------------------------------------- */
+/*  7.  Contact Section
+/* ------------------------------------------------------------------------------- */
+
+    #contact {
+        overflow: hidden;
+        padding-bottom: 60px;
+    }
+
+
+    /*  Google Map  --------------------------------*/
+
+    .map-wrapper {
+        width: 860px;
+        height: 300px;
+        margin: 30px 0 0 40px;
+        background: url("../images/bg_04.jpg")/*tpa=http://edison.reworkmedia.net/01/images/bg_04.jpg*/;
+        display: inline-block;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    #map {
+        width: 830px;
+        height: 270px;
+        margin: 15px;
+    }
+
+
+    /*  Contact Info  --------------------------------*/
+
+    .contact-header {
+        width: 600px;
+        margin: 35px 170px 0;
+        text-align: center;
+    }
+    .contact-header p {
+        margin-top: 20px;
+        color: #795f39;
+    }
+    .contact-info {
+        width: 320px;
+        margin: 44px 0 0 40px;
+        float: left;
+    }
+    .contact-info ul {
+        float: left;
+    }
+    .contact-info ul li {
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+
+
+    /*  Contact Form  --------------------------------*/
+
+    #contactform {
+        width: 500px;
+        margin: 40px 0 0 40px;
+        float: left;
+    }
+    #contactform ul li {
+        margin-bottom: 20px;
+    }
+    #contactform input {
+        width: 300px;
+    }
+    #contactform textarea {
+        width: 478px;
+    }
+    #contactform input:focus, #contactform textarea:focus {
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5), 0 0 6px rgba(83, 123, 198, 0.3);
+           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5), 0 0 6px rgba(83, 123, 198, 0.3);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset, 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.5), 0 0 6px rgba(83, 123, 198, 0.3);
+    }
+    #contactform .submit {
+        width: 320px;
+    }
+    #contactform .submit:hover {
+        background-color: rgba(255, 210, 140, 0.35);
+    }
+    #contactform .submit:active {
+        -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) inset, 0 -1px 0px rgba(0, 0, 0, 0.13), 0 1px 0px rgba(255, 255, 255, 0.25);
+           -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) inset, 0 -1px 0px rgba(0, 0, 0, 0.13), 0 1px 0px rgba(255, 255, 255, 0.25);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) inset, 0 -1px 0px rgba(0, 0, 0, 0.13), 0 1px 0px rgba(255, 255, 255, 0.25);
+    }
+    #contactform .flabel {
+        font-weight: bold;
+        color: #ab9873;
+        margin: 7px 9px;
+        position: absolute;
+        text-shadow: none;
+    }
+    .success {
+        width: 300px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: rgba(72, 115, 28, 0.6);
+        text-align: center;
+        font-weight: bold;
+        color: #e2e8bf;
+        text-shadow: none;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+    }
+    #contactform .error {
+        margin-top: 3px;
+        color: #974412;
+        font-weight: bold;
+        display: block;
+    }
+
+
+/* ------------------------------------------------------------------------------- */
+/*  8.  Footer
+/* ------------------------------------------------------------------------------- */
+    
+    .footer {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+
+    /*  Social Links  --------------------------------*/
+
+    .social-links {
+        text-align: center;
+        display: inline-block;
+    }
+    .social-links li {
+        float: left;
+        margin: 0 3px;
+    }
+    .social-links li > a {
+        display: inline;
+        margin: 2;
+        padding: 0;
+        background-color: rgba(122, 70, 9, 0.1);
+        -webkit-border-radius: 20px;
+           -moz-border-radius: 20px;
+                border-radius: 20px;
+        -webkit-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.6) inset, 0 2px 1px rgba(255, 255, 255, 0.35);
+           -moz-box-shadow: 0 1px 3px rgba(59, 31, 0, 0.6) inset, 0 2px 1px rgba(255, 255, 255, 0.35);
+                box-shadow: 0 1px 3px rgba(59, 31, 0, 0.6) inset, 0 2px 1px rgba(255, 255, 255, 0.35);
+    }
+    .social-links li > a:hover {
+        background-color: rgba(122, 70, 9, 0.25);
+    }
+    .social-twitter {
+        width: 26px;
+        height: 26px;
+        background: url("../images/social_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/social_icons.png*/ no-repeat 0px 0px;
+        float: left;
+    }
+    .social-facebook {
+        width: 26px;
+        height: 26px;
+        background: url("../images/social_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/social_icons.png*/ no-repeat -32px 0px;
+        float: left;
+    }
+    .social-linkedin {
+        width: 26px;
+        height: 26px;
+        background: url("../images/social_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/social_icons.png*/ no-repeat -64px 0px;
+        float: left;
+    }
+    .social-google {
+        width: 26px;
+        height: 26px;
+        background: url("../images/social_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/social_icons.png*/ no-repeat -96px 0px;
+        float: left;
+    }
+    .social-dribbble {
+        width: 26px;
+        height: 26px;
+        background: url("../images/social_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/social_icons.png*/ no-repeat -128px 0px;
+        float: left;
+    }
+    .copyright {
+        margin-top: 10px;
+        color: #795f39;
+    }
+
+
+
+/* ------------------------------------------------------------------------------- */
+/*  9.  Media Queries
+/* ------------------------------------------------------------------------------- */
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    
+    /*--Document Setup--*/
+        #container {
+            width: 716px;
+        }
+
+    /*--Navigation--*/
+        .navigation {
+            background: url("../images/bg_nav_768.png")/*tpa=http://edison.reworkmedia.net/01/images/bg_nav_768.png*/ bottom left no-repeat;
+        }
+
+    /*--Welcome Section--*/
+        .slider-wrapper {
+            width: 606px;
+            margin: 30px 40px 35px;
+            }
+        .flex-caption {
+            bottom: 35px !important;
+            right: 20px !important;
+        }
+
+    /*--About Section--*/
+        .experience {
+            width: 350px;
+        }
+        .skills {
+            width: 250px;
+            margin-left: 30px;
+        }
+        .skills li h4 {
+            width: 100px;
+            float: left;
+        }
+
+    /*--Portfolio Section--*/
+        #portfolio-feed {
+            width: 716px;
+        }
+        #portfolio-feed li {
+            margin: 0 14px 40px;
+        }
+
+    /*--Contact Section--*/
+        .map-wrapper {
+            width: 636px;
+        }
+        #map {
+            width: 606px;
+        }
+        .contact-header {
+            margin: 35px 58px 0;
+        }
+        .contact-info {
+            width: 290px;
+        }
+        #contactform {
+            width: 309px;
+            margin-left: 30px;
+        }
+        #contactform input {
+            width: 250px;
+        }
+        #contactform textarea {
+            width: 294px;
+        }
+        #contactform .submit {
+            width: 270px;
+        }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    /*--Document Setup--*/
+        #container {
+            width: 470px;
+            margin-top: 40px;
+        }
+
+    /*--Header--*/
+        .header {
+            height: 80px;
+        }
+        #logo h2 {
+            font-size: 38px;
+        }
+    /*--Navigation--*/
+        .navigation {
+            background: url("../images/bg_nav_480.png")/*tpa=http://edison.reworkmedia.net/01/images/bg_nav_480.png*/ bottom left no-repeat;
+        }
+
+    /*--Welcome Section--*/
+        .slider-wrapper {
+            width: 400px;
+            margin: 15px 25px 20px;
+            padding: 10px;
+        }
+        .flex-caption {
+            display: none;
+        }
+
+    /*--About Section--*/
+        .resume {
+            width: 390px;
+            text-align: center;
+        }
+        .resume .photo {
+            float: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .personal-info {
+            margin-left: 0;
+            float: none;
+            display: inline-block;
+        }
+        .experience {
+            width: 390px;
+        }
+        .skills {
+            float: left;
+            margin-left: 40px;
+            margin-top: 20px;
+        }
+
+    /*--Portfolio Section--*/
+        #portfolio {
+            padding: 0 21px;
+            text-align: center;
+        }
+        #portfolio-filter li {
+            float: none;
+            display: inline-block;
+        }
+        #portfolio-feed {
+            width: 470px;
+        }
+        #portfolio-feed li {
+            margin: 0 10px 40px 10px;
+        }
+
+    /*--Contact Section--*/
+        .map-wrapper {
+            width: 390px;
+            height: 250px;
+            margin: 35px 0 0 40px;
+        }
+        #map {
+            width: 370px;
+            height: 230px;
+            margin: 10px;
+        }
+        .contact-header {
+            width: 390px;
+            margin: 20px 40px 0;
+        }
+        .separator {
+            background: url("../images/separator_02.png")/*tpa=http://edison.reworkmedia.net/01/images/separator_02.png*/ center no-repeat;
+        }
+        .contact-info {
+            width: 390px;
+            margin-top: 35px;
+        }
+        #contactform {
+            width: 390px;
+            margin-top: 30px;
+            margin-left: 40px;
+        }
+        #contactform textarea {
+            width: 370px;
+        }
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+    /*--Document Setup--*/
+        #container {
+            width: 300px;
+            margin-top: 30px;
+        }
+
+    /*--Header--*/
+        .header {
+            height: 65px;
+        }
+        #logo h2 {
+            font-size: 32px;
+        }
+        #logo h4 {
+            font-size: 13px;
+        }
+
+    /*--Navigation--*/
+        .navigation {
+            background: url("../images/bg_nav_320.png")/*tpa=http://edison.reworkmedia.net/01/images/bg_nav_320.png*/ bottom left no-repeat;
+        }
+        .tabs li > a {
+            width: 65px;
+            font-size: 12px;
+        }
+        .tab-welcome {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -20px 0px;
+        }
+        .tab-about {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -126px 0;
+        }
+        .tab-portfolio {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -231px 0;
+        }
+        .tab-contact {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -338px 0;
+        }
+        .tabs .active .tab-welcome {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -20px -69px;
+        }
+        .tabs .active .tab-about {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -126px -69px;
+        }
+        .tabs .active .tab-portfolio {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -231px -69px;
+        }
+        .tabs .active .tab-contact {
+            background: url("../images/tab_icons.png")/*tpa=http://edison.reworkmedia.net/01/images/tab_icons.png*/ -338px -69px;
+        }
+
+    /*--Welcome Section--*/
+        .slider-wrapper {
+            width: 230px;
+            margin: 15px 25px 20px;
+            padding: 10px;
+        }
+        .flex-caption {
+            display: none;
+        }
+        .ribbon {
+            display: none;
+        }
+
+        .separator {
+            width: 100%;
+            height: 15px;
+            background: url("../images/separator_02.png")/*tpa=http://edison.reworkmedia.net/01/images/separator_02.png*/ center no-repeat;
+        }
+
+    /*--About Section--*/
+        .resume {
+            width: 250px;
+            text-align: center;
+        }
+        .resume .photo {
+            float: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .personal-info {
+            width: 250px;
+            margin-left: 0;
+            float: left;
+        }
+        .personal-info li {
+            margin-bottom: 15px;
+        }
+        .personal-info li h4 {
+            line-height: 18px;  
+        }
+        .personal-info li span {
+            float: left;
+        }
+        .personal-info li p {
+            margin: 0;
+            line-height: 24px;
+        }
+        .experience {
+            width: 250px;
+            margin: 15px 0 0 25px;
+        }
+        .skills {
+            float: left;
+            margin: 15px 0 0 25px;
+        }
+        .skills li h4 {
+            width: 107px;
+        }
+
+    /*--Portfolio Section--*/
+        #portfolio-filter{
+            margin: 25px 0 20px;
+        }
+        #portfolio-filter li {
+            float: none;
+            display: inline-block;
+        }
+        #portfolio-feed {
+            width: 300px;
+        }
+        #portfolio-feed li {
+            margin-left: 28px;
+        }
+
+    /*--Contact Section--*/
+        .map-wrapper {
+            width: 250px;
+            height: 230px;
+            margin: 15px 25px 0;
+        }
+        #map {
+            width: 230px;
+            height: 210px;
+            margin: 10px;
+        }
+        .contact-header {
+            width: 250px;
+            margin: 20px 25px 0;
+        }
+        .contact-info {
+            width: 250px;
+            margin: 30px 25px 0;
+        }
+        #contactform {
+            width: 250px;
+            margin: 30px 25px 0;
+        }
+        #contactform input, #contactform textarea {
+            width: 230px;
+        }
+        #contactform .submit {
+            width: 250px;
+        }
+        .success {
+        width: 230px;
+        }
+}
